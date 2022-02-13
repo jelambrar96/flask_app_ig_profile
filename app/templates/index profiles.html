@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <form action="/add_profile" method="post">
+            <div class="form-group">
+              <input class="form-control" type="text" name="profile" placeholder="Profile" required>
+            </div>
+            <div class="form-check">
+              <label for="is_active" class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="is_active" id="is_active" checked>
+                Active
+              </label>
+            </div>
+            <button class="btn btn-primary" type="submit">
+              Add Account
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Profile</th>
+            <th>Active</th>
+            <th>link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for entry in profiles %}
+          <tr>
+            <td>{{ entry.id }}</td>
+            <td><strong>{{ entry.profile }}</strong></td>
+            <td>{{ "Yes" if entry.is_active else "No" }}</td>
+            <td>
+              <a class="{{ 'btn btn-success' if entry.is_active else 'btn btn-dark'}}" href="/turn_profile/{{ entry.id }}">
+                {{ "Active" if entry.is_active else "Inactive" }}
+              </a>
+              <a class="btn btn-danger" href="/delete_profile/{{ entry.id }}">
+                Delete
+              </a>
+              <a class="btn btn-info" href="/update_profile/{{ entry.id }}">
+                Edit
+              </a>
+            </td>
+            <td><a href="{{ 'https://www.instagram.com/{}/'.format( entry.profile) }}" target="_blank">Link</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

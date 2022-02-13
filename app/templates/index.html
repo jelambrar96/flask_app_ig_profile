@@ -1,0 +1,14 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<ul>
+  <li><a href="{{ url_for('index_profiles') }}">Profiles</a></li>
+  <li><a href="{{ url_for('index_accounts') }}">Accounts</a></li>
+  <li><a href="{{ url_for('index_entries') }}">Entries</a></li>
+</ul>
+
+
+{% endblock %}
