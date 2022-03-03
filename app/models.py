@@ -1,9 +1,12 @@
+from dataclasses_json import dataclass_json
 from dataclasses import dataclass
 from app import db
 
 
+@dataclass_json
 @dataclass
 class Entry(db.Model):
+
     id: int
     title: str
     description: str
@@ -14,8 +17,11 @@ class Entry(db.Model):
     description = db.Column(db.String(120), index=True, nullable=False)
     status = db.Column(db.Boolean, default=False)
 
+
+@dataclass_json
 @dataclass
 class Profile(db.Model):
+
     id: int
     profile: str
     is_active: bool
@@ -26,8 +32,11 @@ class Profile(db.Model):
     is_active = db.Column(db.Boolean, default=True)
     is_favorite = db.Column(db.Boolean, default=False)
 
+
+@dataclass_json
 @dataclass
 class Account(db.Model):
+
     id: int
     username: str
     password: str
