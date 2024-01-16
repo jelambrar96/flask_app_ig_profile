@@ -1,7 +1,17 @@
 # Example Python Flask Crud
 
- Simple example python flask crud app for sqlite.
- 
+Simple example python flask crud app for sqlite.
+
+## Descripción
+
+Este proyecto es una aplicación web desarrollada en Flask que consiste en un formulario para la recolección de datos, los cuales son almacenados en una base de datos SQL.
+
+### Requisitos
+- Python 3.x
+- Flask
+- SQL Alchemy
+
+
 ## Screenshots
 
 
@@ -14,7 +24,7 @@ open the terminal and follow the white rabbit.
 
 
 ```
-git clone https://github.com/gurkanakdeniz/example-flask-crud.git
+git clone https://github.com/jelambrar96/flask_app_ig_profile.git
 ```
 ```
 cd example-flask-crud/
